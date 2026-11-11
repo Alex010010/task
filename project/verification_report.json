@@ -1,0 +1,125 @@
+{
+  "project_root": ".",
+  "contract_version": 2,
+  "status": "structural_only",
+  "runner": "structural",
+  "checks": [
+    {
+      "name": "project-layout",
+      "command": [],
+      "status": "passed",
+      "exit_code": 0,
+      "output": "4 ruta(s) emitida(s) por más de una fase con contenido distinto; se conservó la versión de la fase más reciente según el orden del workflow: app/build.gradle.kts, app/src/androidTest/java/com/alex/tareas/data/local/TaskDaoTest.kt, app/src/androidTest/java/com/alex/tareas/presentation/components/TaskItemTest.kt, app/src/test/java/com/alex/tareas/domain/usecase/TaskUseCasesTest.kt.",
+      "duration_ms": 0,
+      "timeout_seconds": null,
+      "timed_out": false
+    },
+    {
+      "name": "java-project-structure:.",
+      "command": [
+        "<validated-structural>",
+        "26 fuentes JVM; Gradle"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "output": "26 fuentes JVM; Gradle",
+      "duration_ms": 0,
+      "timeout_seconds": null,
+      "timed_out": false
+    },
+    {
+      "name": "java-compile:.",
+      "command": [
+        "<not-run>",
+        "omitido en modo structural/auto (toolchain no ejecutado): gradle compileJava --no-daemon"
+      ],
+      "status": "skipped",
+      "exit_code": null,
+      "output": "omitido en modo structural/auto (toolchain no ejecutado): gradle compileJava --no-daemon",
+      "duration_ms": 0,
+      "timeout_seconds": null,
+      "timed_out": false
+    },
+    {
+      "name": "java-tests:.",
+      "command": [
+        "<not-run>",
+        "omitido en modo structural/auto (toolchain no ejecutado): gradle test --no-daemon"
+      ],
+      "status": "skipped",
+      "exit_code": null,
+      "output": "omitido en modo structural/auto (toolchain no ejecutado): gradle test --no-daemon",
+      "duration_ms": 0,
+      "timeout_seconds": null,
+      "timed_out": false
+    },
+    {
+      "name": "java-project-structure:app",
+      "command": [
+        "<validated-structural>",
+        "26 fuentes JVM; Gradle"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "output": "26 fuentes JVM; Gradle",
+      "duration_ms": 0,
+      "timeout_seconds": null,
+      "timed_out": false
+    },
+    {
+      "name": "java-compile:app",
+      "command": [
+        "<not-run>",
+        "omitido en modo structural/auto (toolchain no ejecutado): gradle compileJava --no-daemon"
+      ],
+      "status": "skipped",
+      "exit_code": null,
+      "output": "omitido en modo structural/auto (toolchain no ejecutado): gradle compileJava --no-daemon",
+      "duration_ms": 0,
+      "timeout_seconds": null,
+      "timed_out": false
+    },
+    {
+      "name": "java-tests:app",
+      "command": [
+        "<not-run>",
+        "omitido en modo structural/auto (toolchain no ejecutado): gradle test --no-daemon"
+      ],
+      "status": "skipped",
+      "exit_code": null,
+      "output": "omitido en modo structural/auto (toolchain no ejecutado): gradle test --no-daemon",
+      "duration_ms": 0,
+      "timeout_seconds": null,
+      "timed_out": false
+    },
+    {
+      "name": "declared-gaps",
+      "command": [
+        "<validated-structural>",
+        "sin marcadores [NEEDS CLARIFICATION] en el código entregado"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "output": "sin marcadores [NEEDS CLARIFICATION] en el código entregado",
+      "duration_ms": 0,
+      "timeout_seconds": null,
+      "timed_out": false
+    },
+    {
+      "name": "native-source-structure",
+      "command": [
+        "<validated-structural>",
+        "29 fuentes nativos"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "output": "29 fuentes nativos",
+      "duration_ms": 0,
+      "timeout_seconds": null,
+      "timed_out": false
+    }
+  ],
+  "project_files": 35,
+  "degraded_because": "el modo de verificación configurado es structural (TRANSICION_VERIFICATION_MODE)",
+  "message": "5 comprobaciones estructurales superadas y 4 comprobación(es) omitida(s); el toolchain del stack no se ejecutó: el modo de verificación configurado es structural (TRANSICION_VERIFICATION_MODE). Ninguna comprobación falló: no se pudo comprobar."
+}

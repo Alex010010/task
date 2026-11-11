@@ -38,20 +38,20 @@ class TaskEditorViewModel @Inject constructor(
     private val getTask: GetTaskUseCase,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private val taskId: String? = savedStateHandle[TASK_ID_KEY]
+    private val taskId: String? = savedStateHandle.get<String>(TASK_ID_KEY)
     private var original: Task? = null
     private var isInitialTaskLoaded = taskId == null
-
+    
     private val mutableState = MutableStateFlow(
         TaskEditorUiState(
             taskId = taskId,
-            title = savedStateHandle[TITLE_KEY] ?: "",
-            description = savedStateHandle[DESCRIPTION_KEY] ?: "",
-            priority = savedStateHandle[PRIORITY_KEY]
-                ?.let(Priority::valueOf)
+            title = savedStateHandle.get<String>(TITLE_KEY) ?: "",
+            description = savedStateHandle.get<String>(DESCRIPTION_KEY) ?: "",
+            priority = savedStateHandle.get<String>(PRIORITY_KEY)
+                ?.let { Priority.valueOf(it) }
                 ?: Priority.MEDIUM,
-            dueDate = savedStateHandle[DUE_DATE_KEY]
-                ?.let(::parseDueDate),
+            dueDate = savedStateHandle.get<String>(DUE_DATE_KEY)
+                ?.let { parseDueDate(it) },
             isEditMode = taskId != null
         )
     )

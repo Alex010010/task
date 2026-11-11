@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-24.04
 
+    env:
+      ANDROID_HOME: /usr/local/lib/android/sdk
+      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -20,33 +24,21 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Set up Gradle
+      - name: Set up Gradle 8.7
         uses: gradle/actions/setup-gradle@v6
         with:
           gradle-version: '8.7'
-
-      - name: Show Android environment
-        run: |
-          echo "ANDROID_HOME=$ANDROID_HOME"
-          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
-          which sdkmanager || true
-          sdkmanager --version
-
-      - name: Install Android SDK 35
-        run: |
-          yes | sdkmanager --licenses > /dev/null || true
-          sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
       - name: Build Debug APK
         working-directory: project
         run: gradle :app:assembleDebug --stacktrace
 
-      - name: Show generated APKs
-        if: success()
-        run: find project/app/build/outputs -type f -name "*.apk"
+      - name: Find generated APK
+        run: |
+          echo "Generated APK:"
+          find project/app/build/outputs -type f -name "*.apk"
 
       - name: Upload APK
-        if: success()
         uses: actions/upload-artifact@v7
         with:
           name: tareas-debug-apk
